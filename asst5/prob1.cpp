@@ -1,5 +1,7 @@
 /*
 	Author: John Nemeth
+        Info: back prop algorithm taken from 'artificial intelligence
+                modern approach' and other various info cited in comments
 */
 
 #include <iostream>
@@ -15,8 +17,6 @@
 #define EXAMPLECOUNT 12
 
 using namespace std;
-
-//#define ATTRIBUTECOUNT 9
 
 ////////////////////////////////////////////////////////////////////
 /* structs for NN */
@@ -205,6 +205,7 @@ void backPropLearning(example * examplesArr, neuralNet * nn) {
 
     while (1) {
 
+        nn->outputNeuron.activatedVal = 500.0;		// reset activated val for convergence tests
         // assign random initial weights for each neuron connection
         for (int i = 0; i < inputWCount; i++) {
             nn->inputWeights[i] = dis(gen);
@@ -274,20 +275,17 @@ void backPropLearning(example * examplesArr, neuralNet * nn) {
             // variables to test for final example evaluation (convergence)
             double actDiff = fabs(oldActivated - nn->outputNeuron.activatedVal);
             double errorDiff = fabs(oldError - outputError);
-            if ((actDiff > 0.01) && (errorDiff > 0.01)) {		// if difference unacceptable, display msg
+            if ((actDiff > 0.01) && (errorDiff > 0.01)) {	// difference arbitrarily unacceptable
                 cout << "\tFAILED CONVERGENCE TEST - CONTINUING BACK PROP LEARNING..." << endl;
                 exampleIterations = 0;
                 continue;
             }
-            else {
-                cout << "PASSED CONVERGENCE TEST\noutput difference upon final example: " << actDiff
-                     << "\nerror difference upon final example: " << errorDiff << endl;
-                cout << "loops through example set: " << exampleIterations << endl << endl;
-            }
+            cout << "PASSED CONVERGENCE TEST\noutput difference upon final example: " << actDiff
+                 << "\nerror difference upon final example: " << errorDiff << endl;
+            cout << "loops through example set: " << exampleIterations << endl << endl;
             printNN(nn);
             return;
         }
-
         exampleIterations++;
     }
 }
