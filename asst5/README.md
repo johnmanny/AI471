@@ -4,3 +4,11 @@ this takes given example data from information in figure 18.3
 (artificial intelligence modern approach - by russell) and implements
 & trains a neural net using the back prop algorithm in the same textbook
 (figure 18.24)
+
+## use
+```
+make
+./prob1
+...
+make clean
+```
