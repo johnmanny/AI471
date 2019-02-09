@@ -6,12 +6,23 @@ This takes given example data from information in figure 18.3
 (figure 18.24)
 
 ## Details
-This was developed on a Unix terminal.
+After initializing example data from examples.txt, the training on
+the neural network begins. Weights between each neuron are initially
+assigned a random floating point number (at the start of each training
+iteration throughout the example data). Values for each neuron are then 
+calculated and fed forward before the neuron is activated. Once the output
+neuron is activated, error is calculated and backpropogated through the weights
+of the network. This is a form of supervised learning. 
 
+It's worth noting that this project is meant to be a conceptual tool used to 
+assist in understanding of neural networks. In reality, the example set is much
+too small to be of reliable accuracy.
+
+Development was done on linux.
 ## Use
 ```
 make
-./prob1
+./nndemo
 ...
 make clean
 ```
