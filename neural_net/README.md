@@ -1,8 +1,8 @@
 # Feedforward Neural Network with Back Propogation
 This takes given example data from information in figure 18.3
-(excluding hungry attribute) from textbook cited in top of prob1.cpp
+(excluding hungry attribute) from textbook cited in top of nndemo.cpp
 (artificial intelligence modern approach - by russell) and implements
-& trains a feedforward neural net using the back prop algorithm in the same textbook
+& trains a feedforward neural net using the back propogation algorithm in the same textbook
 (figure 18.24)
 
 ## Details
